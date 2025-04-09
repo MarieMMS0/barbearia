@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Oliver's Barbearia</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="../static/images/bigode.png" alt="Logo Barbearia Oliver's - Bigode">
+            <h1>BARBEARIA OLIVER'S</h1>
+        </div>
+
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="/servicos">Serviços</a></li>
+                <li><a href="/agendamento">Agendamento</a></li>
+                <li><a href="/contato" class="active">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contato">
+        <h2>Fale Conosco</h2>
+        <p>Tem alguma dúvida ou sugestão? Preencha o formulário abaixo e fale com a gente pelo WhatsApp:</p>
+
+        <form action="/contato" method="POST">
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="mensagem">Mensagem:</label>
+            <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+            <button type="submit">Enviar no WhatsApp</button>
+        </form>
+
+        <div class="info-contato">
+            <p><strong>Endereço:</strong> Av. Betonex, 135 - Jardim Holandês, Piraquara - PR</p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/5541991427664" target="_blank">(41) 99142-7664</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <h3>Oliver's Barbearia</h3>
+        <p>📍 <a href="https://maps.google.com/?q=Av. Betonex, 135 - Jardim Holandês, Piraquara - PR" target="_blank" class="footer-link">
+            Av. Betonex, 135 - Jardim Holandês, Piraquara - PR
+        </a></p>
+        <p>📞 <a href="https://wa.me/5541991427664" target="_blank" class="footer-link">
+            (41) 99142-7664
+        </a></p>
+        <p>© 2025 Oliver's. Todos os direitos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/5541991427664" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <img src="../static/images/whatsapp-icon.png" alt="WhatsApp" />
+    </a>
+
+</body>
+</html>

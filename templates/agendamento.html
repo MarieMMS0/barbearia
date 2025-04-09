@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento | Barbearia Oliver'S</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <style>
+        .agendamento-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        .agendamento-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .agendamento-form input,
+        .agendamento-form select {
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background-color: #222;
+            color: white;
+            font-size: 16px;
+        }
+
+        .agendamento-form button {
+            margin-top: 20px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            margin-top: 10px;
+        }
+
+        .footer-link {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: #d4af37;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../static/images/bigode.png" alt="Bigode">
+            <h1>BARBEARIA OLIVER'S</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+                <li><a href="{{ url_for('agendamento') }}">Agendamento</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="agendamento-container">
+        <h2>Agende Seu Horário</h2>
+        <p>Horário de funcionamento: 09:00 às 19:30</p>
+
+        <form id="formAgendamento" class="agendamento-form" method="POST">
+            <input type="text" name="nome" placeholder="Seu Nome Completo" required>
+            <input type="tel" name="telefone" placeholder="WhatsApp (com DDD)" required pattern="[0-9]{11}" title="Digite um número com DDD (ex: 41999998888)">
+
+            <select name="barbeiro" required>
+                <option value="">Escolha seu barbeiro</option>
+                <option>João</option>
+                <option>Carlos</option>
+                <option>Marcos</option>
+                <option>Pedro</option>
+            </select>
+
+            <input type="date" name="data" required>
+            <select name="horario" required>
+                <option value="">Selecione o horário</option>
+                <option>09:00</option>
+                <option>10:00</option>
+                <option>11:00</option>
+                <option>13:00</option>
+                <option>14:00</option>
+                <option>15:00</option>
+                <option>16:00</option>
+                <option>17:00</option>
+                <option>18:00</option>
+            </select>
+
+            <select name="servico" required>
+                <option value="">Selecione o serviço</option>
+                <option value="Corte de Cabelo - R$30">Corte de Cabelo (R$30)</option>
+                <option value="Barba - R$20">Barba (R$20)</option>
+                <option value="Combo Premium - R$45">Combo Premium (R$45)</option>
+            </select>
+
+            <button type="submit" class="btn">Confirmar Agendamento</button>
+            <a href="https://wa.me/5541991427664?text=Olá! Gostaria de agendar um horário na barbearia Oliver's" target="_blank" class="btn whatsapp-btn">Falar diretamente no WhatsApp</a>
+        </form>
+
+        <h2>Agendamentos Realizados</h2>
+        <ul>
+            {% for agendamento in agendamentos %}
+                <li>
+                    {{ agendamento.nome }} - {{ agendamento.data }} às {{ agendamento.horario }} -
+                    {{ agendamento.servico }} com {{ agendamento.barbeiro }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <footer>
+        <h3>Oliver's Barbearia</h3>
+        <p>
+            📍 <a href="https://maps.google.com/?q=Av. Betonex, 135 - Jardim holandes, Piraquara - PR"
+               target="_blank"
+               class="footer-link">
+               Av. Betonex, 135 - Jardim holandes, Piraquara - PR
+            </a>
+        </p>
+        <p>
+            📞 <a href="https://wa.me/5541991427664"
+               target="_blank"
+               class="footer-link">
+               (41) 99958-9684
+            </a>
+        </p>
+        <p>© 2023 Oliver's. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="../static/js/agendamento.js"></script>
+</body>
+</html>

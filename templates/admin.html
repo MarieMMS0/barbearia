@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Agendamentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .voltar {
+            margin-top: 20px;
+        }
+        .voltar a {
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agendamentos Recebidos</h1>
+    {% if agendamentos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Barbeiro</th>
+                    <th>Data</th>
+                    <th>Hora</th>
+                    <th>Serviço</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for agendamento in agendamentos %}
+                <tr>
+                    <td>{{ agendamento.id }}</td>
+                    <td>{{ agendamento.nome }}</td>
+                    <td>{{ agendamento.telefone }}</td>
+                    <td>{{ agendamento.barbeiro }}</td>
+                    <td>{{ agendamento.data }}</td>
+                    <td>{{ agendamento.hora }}</td>
+                    <td>{{ agendamento.servico }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Nenhum agendamento encontrado.</p>
+    {% endif %}
+    
+    <div class="voltar">
+        <a href="/">← Voltar para o site</a>
+    </div>
+</body>
+</html>

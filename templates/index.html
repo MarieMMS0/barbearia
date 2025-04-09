@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia Oliver'S</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/bigode.png') }}" alt="Logo Barbearia Oliver's - Bigode">
+            <h1>BARBEARIA OLIVER'S</h1>
+        </div>
+
+        <nav aria-label="Menu principal">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Início</a></li>
+                <li><a href="{{ url_for('servicos') }}">Serviços</a></li>
+                <li><a href="{{ url_for('agendamento') }}">Agendamento</a></li>
+                <li><a href="{{ url_for('contato') }}">Contato</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Estilo que Transforma</h2>
+        <p>Agende seu horário e saia renovado!</p>
+        <a href="{{ url_for('agendamento') }}" class="btn">Agendar Agora</a>
+    </section>
+
+    <section class="servicos">
+        <h2>Nossos Serviços</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Corte de Cabelo</h3>
+                <p class="preco">R$ 30,00</p>
+                <p class="descricao">Estilo personalizado para você</p>
+            </div>
+
+            <div class="card">
+                <h3>Barba</h3>
+                <p class="preco">R$ 20,00</p>
+                <p class="descricao">Acabamento profissional</p>
+            </div>
+
+            <div class="card destaque">
+                <h3>Combo Premium</h3>
+                <p class="preco">R$ 45,00</p>
+                <p class="descricao">Corte + Barba + Finalização</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Oliver's Barbearia</h3>
+        <p>
+            📍 <a href="https://maps.google.com/?q=Av. Betonex, 135 - Jardim Holandês, Piraquara - PR" target="_blank" class="footer-link">
+                Av. Betonex, 135 - Jardim Holandês, Piraquara - PR
+            </a>
+        </p>
+        <p>
+            📞 <a href="https://wa.me/5541991427664" target="_blank" class="footer-link">
+                (41) 991427664-7664
+            </a>
+        </p>
+        <p>© 2025 Oliver's. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5541991427664" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <img src="{{ url_for('static', filename='images/whatsapp-icon.png') }}" alt="WhatsApp" />
+    </a>
+
+</body>
+</html>
