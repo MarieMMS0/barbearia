@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Configuração inicial
+    // Config. inicial
     const hoje = new Date();
     const dataInput = document.getElementById('data');
     const horaSelect = document.getElementById('hora');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 1. Define a data mínima como hoje
     dataInput.min = hoje.toISOString().split('T')[0];
     
-    // 2. Cria os horários disponíveis (09:00 às 19:30)
+    // 2. horários disponíveis (09:00 às 19:30)
     function gerarHorarios() {
         horaSelect.innerHTML = '<option value="">Selecione o horário</option>';
         
@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 3. Atualiza ao mudar a data
     dataInput.addEventListener('change', gerarHorarios);
     
-    // AJUSTE 1: Link direto do WhatsApp atualizado
+    // Link direto do WhatsApp
     whatsappBtn.href = "https://wa.me/5541999589684?text=Olá! Vi o site e gostaria de agendar um horário. Podem me ajudar?";
     
-    // Envio do formulário
+    // Enviar formulário
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             servico: this.querySelector('#servico').value
         };
         
-        // AJUSTE 2: Mensagem formatada para WhatsApp
+        // Mensagem formatada para WhatsApp
         const mensagem = `✂️ *AGENDAMENTO BARBEARIA OLIVER'S* ✂️\n\n` +
                          `👤 *Nome:* ${dados.nome}\n` +
                          `📱 *WhatsApp:* ${dados.telefone}\n` +
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Abre WhatsApp
         window.open(`https://wa.me/5541999589684?text=${encodeURIComponent(mensagem)}`, '_blank');
         
-        // AJUSTE 3: Feedback ao usuário
+        // Feedback ao usuário
         alert('Agendamento enviado! Aguarde a confirmação pelo WhatsApp.');
         form.reset();
         gerarHorarios();
